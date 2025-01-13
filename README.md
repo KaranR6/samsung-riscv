@@ -23,7 +23,7 @@
 3.Terminal window displaying disassembled output, including the assembly instructions of the compiled C program
 ![image](https://github.com/user-attachments/assets/0926616e-90bf-466b-8b4e-4a43febf0452)
 
-4.
+4.RISC-V  -O1 and -Ofast
 ![image](https://github.com/user-attachments/assets/b8e75b6f-855f-4402-8d46-62c50067b565)
 
 
