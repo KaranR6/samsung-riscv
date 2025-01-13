@@ -21,9 +21,9 @@
 ![image](https://github.com/user-attachments/assets/71f9f5e8-56af-4034-b858-d67c87dab718)
 
 3.Terminal window displaying disassembled output, including the assembly instructions of the compiled C program
+![image](https://github.com/user-attachments/assets/0926616e-90bf-466b-8b4e-4a43febf0452)
 
-
-
+4.
 
 
 
