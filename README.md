@@ -11,7 +11,7 @@
 - Installation of RISC-V toolchain using the VDI link provided.
 - The program demonstrates basic operations in C and their equivalent implementation in RISC-V assembly language.  
 <details>
-<summary> <b>Task 1:</b>
+<summary> <b>Task 1:</b></summary>
 <br>
 1.Compilation and execution of a C program (sum1ton.c) that calculates the sum of numbers from 1 to 15.
   
@@ -25,7 +25,7 @@
 
 4.RISC-V  -O1 and -Ofast
 ![image](https://github.com/user-attachments/assets/b8e75b6f-855f-4402-8d46-62c50067b565)
-</summary>
+---------------------------------------------------------
 ## Task 2: RISC-V Toolchain Installation 
 Compilation and Optimization: A C program is compiled using the RISC-V GCC compiler with the -O1 and -Ofast optimization flag to observe its performance and efficiency.
 
