@@ -27,6 +27,8 @@
 
 ![image](https://github.com/user-attachments/assets/b8e75b6f-855f-4402-8d46-62c50067b565)
 
+</details>
+
 ---------------------------------------------------------
 
 ## Task 2: RISC-V Toolchain Installation 
