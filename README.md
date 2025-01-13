@@ -31,7 +31,7 @@
 
 ---------------------------------------------------------
 
-## Task 2: RISC-V Toolchain Installation 
+## Task 2: RISC-V Object dump for both -O1 and -Ofast
 
 - Compilation and Optimization: A C program is compiled using the RISC-V GCC compiler with the -O1 and -Ofast optimization flag to observe its performance and efficiency.
 
