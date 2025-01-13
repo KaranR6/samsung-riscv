@@ -40,7 +40,7 @@
 - Object Dump Analysis: The RISC-V object dump of the program is generated, showing the disassembled assembly instructions and memory addresses.
 
 <details>
-<summary> <b>Task 1:</b></summary>
+<summary> <b>Task 2:</b></summary>
 <br>
 1.simple c program of swap of numbers using RISC-V GCC
 
@@ -57,4 +57,4 @@
 ![swap_Ofast_2](https://github.com/user-attachments/assets/17cc8da5-ad19-4a42-b8df-5a53b0da8c04)
 
 </details>
----
+
