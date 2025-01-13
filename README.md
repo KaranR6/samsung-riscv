@@ -32,11 +32,12 @@
 ---------------------------------------------------------
 
 ## Task 2: RISC-V Toolchain Installation 
-Compilation and Optimization: A C program is compiled using the RISC-V GCC compiler with the -O1 and -Ofast optimization flag to observe its performance and efficiency.
 
-Simulation with SPIKE: The compiled binary is executed in the SPIKE RISC-V simulator.
+-Compilation and Optimization: A C program is compiled using the RISC-V GCC compiler with the -O1 and -Ofast optimization flag to observe its performance and efficiency.
 
-Object Dump Analysis: The RISC-V object dump of the program is generated, showing the disassembled assembly instructions and memory addresses.
+-Simulation with SPIKE: The compiled binary is executed in the SPIKE RISC-V simulator.
+
+-Object Dump Analysis: The RISC-V object dump of the program is generated, showing the disassembled assembly instructions and memory addresses.
 
 
 
