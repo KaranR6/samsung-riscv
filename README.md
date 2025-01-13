@@ -24,8 +24,11 @@
 ![image](https://github.com/user-attachments/assets/0926616e-90bf-466b-8b4e-4a43febf0452)
 
 4.RISC-V  -O1 and -Ofast
+
 ![image](https://github.com/user-attachments/assets/b8e75b6f-855f-4402-8d46-62c50067b565)
+
 ---------------------------------------------------------
+
 ## Task 2: RISC-V Toolchain Installation 
 Compilation and Optimization: A C program is compiled using the RISC-V GCC compiler with the -O1 and -Ofast optimization flag to observe its performance and efficiency.
 
