@@ -16,8 +16,9 @@
 1.Compilation and execution of a C program (sum1ton.c) that calculates the sum of numbers from 1 to 15.
 ![image](https://github.com/user-attachments/assets/92581395-3c0d-4253-84b3-d23bfcf6ffe5)
 2.Leafpad editor displaying the source code of the sum1ton.c program, implementing the logic to calculate the sum of integers from 1 to 15.
-
+![image](https://github.com/user-attachments/assets/71f9f5e8-56af-4034-b858-d67c87dab718)
 3.Terminal window displaying disassembled output, including the assembly instructions of the compiled C program
+
 
 
 
