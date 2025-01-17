@@ -58,3 +58,37 @@
 
 </details>
 
+## Task 3: 32-bit Instruction Patterns
+
+### Instruction 1: addi x5, x6, 10
+- Instruction type: I-type
+- 32-bit encoding: `0x00030393`
+
+### Instruction 2: sub x7, x8, x9
+- Instruction type: R-type
+- 32-bit encoding: `0x000302b3`
+
+### Instruction 3: lw x10, 20(x11)
+- Instruction type: I-type
+- 32-bit encoding: `0x01430283`
+
+### Instruction 4: sw x12, 16(x13)
+- Instruction type: S-type
+- 32-bit encoding: `0x01030323`
+</details>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
