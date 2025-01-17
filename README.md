@@ -60,7 +60,7 @@
 
 ## Task 3: 32-bit Instruction Patterns
 
-# Decoding RISC-V Instructions
+
 
 ## Instruction Types
 The RISC-V architecture categorizes instructions into six types based on their format:
@@ -71,8 +71,7 @@ The RISC-V architecture categorizes instructions into six types based on their f
 - **U-type**: Upper immediate operations
 - **J-type**: Jump operations
 
-## Visual Guide to Decoding RISC-V Instructions
-This guide explains decoding RISC-V instructions step-by-step, covering all the identified instruction types.
+
 
 ## Identified RISC-V Instructions
 From the `riscv-objdump` output of the application code, the following 15 unique RISC-V instructions were identified along with their 32-bit formats:
