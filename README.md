@@ -60,21 +60,42 @@
 
 ## Task 3: 32-bit Instruction Patterns
 
-### Instruction 1: addi x5, x6, 10
-- Instruction type: I-type
-- 32-bit encoding: `0x00030393`
+# Decoding RISC-V Instructions
 
-### Instruction 2: sub x7, x8, x9
-- Instruction type: R-type
-- 32-bit encoding: `0x000302b3`
+## Instruction Types
+The RISC-V architecture categorizes instructions into six types based on their format:
+- **R-type**: Register to Register operations
+- **I-type**: Immediate operations
+- **S-type**: Store operations
+- **B-type**: Branch operations
+- **U-type**: Upper immediate operations
+- **J-type**: Jump operations
 
-### Instruction 3: lw x10, 20(x11)
-- Instruction type: I-type
-- 32-bit encoding: `0x01430283`
+## Visual Guide to Decoding RISC-V Instructions
+This guide explains decoding RISC-V instructions step-by-step, covering all the identified instruction types.
 
-### Instruction 4: sw x12, 16(x13)
-- Instruction type: S-type
-- 32-bit encoding: `0x01030323`
+## Identified RISC-V Instructions
+From the `riscv-objdump` output of the application code, the following 15 unique RISC-V instructions were identified along with their 32-bit formats:
+
+| Instruction        | 32-bit Code         | Type  |
+|--------------------|---------------------|-------|
+| `add x3, x4, x5`  | `0000000 00101 00100 000 00011 0110011` | R-type |
+| `sub x3, x4, x5`  | `0100000 00101 00100 000 00011 0110011` | R-type |
+| `and x3, x4, x5`  | `0000000 00101 00100 111 00011 0110011` | R-type |
+| `or x3, x4, x5`   | `0000000 00101 00100 110 00011 0110011` | R-type |
+| `xor x3, x4, x5`  | `0000000 00101 00100 100 00011 0110011` | R-type |
+| `sll x3, x4, x5`  | `0000000 00101 00100 001 00011 0110011` | R-type |
+| `srl x3, x4, x5`  | `0000000 00101 00100 101 00011 0110011` | R-type |
+| `addi x3, x4, 10` | `000000000010 00100 000 00011 0010011` | I-type |
+| `andi x3, x4, 10` | `000000000010 00100 111 00011 0010011` | I-type |
+| `ori x3, x4, 10`  | `000000000010 00100 110 00011 0010011` | I-type |
+| `sb x3, 4(x5)`    | `0000000 00011 00101 000 00100 0100011` | S-type |
+| `sh x3, 4(x5)`    | `0000000 00011 00101 001 00100 0100011` | S-type |
+| `beq x3, x4, label` | `0000000 00011 00100 000 00001 1100011` | B-type |
+| `lui x3, 0x2000`  | `00100000 00000 00000 101 00011 0110111` | U-type |
+| `jal x3, label`   | `00000000 00000 00000 101 00011 1101111` | J-type |
+
+
 </details>
 
   
