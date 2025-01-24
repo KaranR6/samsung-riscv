@@ -58,6 +58,8 @@
 
 </details>
 
+----------------------------------------------
+
 ## Task 3: 32-bit Instruction Patterns
 
 
