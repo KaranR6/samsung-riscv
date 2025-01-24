@@ -72,7 +72,9 @@ The RISC-V architecture categorizes instructions into six types based on their f
 - **J-type**: Jump operations
 
 
-
+<details>
+<summary> <b>Task 3:</b></summary>
+<br>
 ## Identified RISC-V Instructions
 From the `riscv-objdump` output of the application code, the following 15 unique RISC-V instructions were identified along with their 32-bit formats:
 
