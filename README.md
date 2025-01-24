@@ -103,11 +103,49 @@ From the `riscv-objdump` output of the application code, the following 15 unique
 
 -------------------------------------------------------
 
-  
+## Task 4: Functional Simulation of RISC-V Core 
+- This project involves simulating the RISC-V core using a Verilog netlist and testbench to validate its functional correctness. 
+- Waveform snapshots and simulation results are analyzed and documented, with all outcomes.
 
 
+<details>
+<summary> <b>Task 4:</b></summary>
+<br>
+Analysing the Output Waveform 
 
+**```Instruction 1: ADD R6, R2, R1```**  
+![ADD](https://github.com/user-attachments/assets/4e1a72ff-5bdb-4f80-93d5-8d331e26c6cb)
 
+**```Instruction 2: SUB R7, R1, R2```**  
+![SUB](https://github.com/user-attachments/assets/919071ea-fa28-46de-92c0-f7e68bef40e0)
+
+**```Instruction 3: AND R8, R1, R3```**
+![AND](https://github.com/user-attachments/assets/f9b9195b-99ef-4f78-a0d9-51058dd98feb)
+
+**```Instruction 4: OR R9, R2, R5```**  
+![OR](https://github.com/user-attachments/assets/5cd81d5f-5778-44c5-9a86-ed8c11003850)
+
+**```Instruction 5: XOR R10, R1, R4```**  
+![XOR](https://github.com/user-attachments/assets/d72dcf44-ea01-4e90-9eb0-575f32a445da)
+
+**```Instruction 6: SLT R1, R2, R4```** 
+![SLT](https://github.com/user-attachments/assets/609ec06e-4481-4673-855c-2ac0b362a0c1)
+
+**```Instruction 7: ADDI R12, R4, 5```**  
+![ADDI](https://github.com/user-attachments/assets/ea0aa791-26f6-495a-8085-08b6a2fd2577)
+
+**```Instruction 8: BEQ R0, R0, 15```**  
+  ![BEQ](https://github.com/user-attachments/assets/10cd28dc-be9c-457d-b615-6c085765fc65)
+ 
+**```Instruction 9: BNE R0, R1, 20```**
+![BNE](https://github.com/user-attachments/assets/0eab30b1-fc2a-46ad-8192-e2b3cb91553b)
+ 
+**```Instruction 10: SLL R15, R1, R2```**  
+![SLL](https://github.com/user-attachments/assets/5de75b7e-60f4-4d60-83a1-86e86c46a3a3)
+
+</details>
+
+------------------------------------------
 
 
 
