@@ -195,7 +195,165 @@ How It Works
 </details>
 
 ------------------------------------------
+## Task 6: Final Working:
 
+<details>
+<summary> <b>Task 6:</b></summary>
+<br>
+
+## Final Working Code
+
+```c
+#include "debug.h"
+
+uint16_t distance;
+
+void Input_Capture_Init(uint16_t arr, uint32_t psc)
+{
+    GPIO_InitTypeDef        GPIO_InitStructure = {0};
+    TIM_ICInitTypeDef       TIM_ICInitStructure = {0};
+    TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure = {0};
+    NVIC_InitTypeDef        NVIC_InitStructure = {0};
+
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD | RCC_APB2Periph_GPIOC | RCC_APB2Periph_TIM1, ENABLE);
+
+    // Initialize trigger and echo related pins for the ultrasonic sensor
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+    GPIO_ResetBits(GPIOD, GPIO_Pin_2);
+
+    // Removed push button initialization (PC3)
+
+    // Initialize output pins for ultrasonic trigger and status (D3 & D4)
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 | GPIO_Pin_4;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+    // Initialize alarm output pin (PC7)
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
+
+    // Timer configuration for input capture (ultrasonic echo)
+    TIM_TimeBaseInitStructure.TIM_Period = arr;
+    TIM_TimeBaseInitStructure.TIM_Prescaler = psc;
+    TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+    TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+    TIM_TimeBaseInitStructure.TIM_RepetitionCounter = 0x00;
+    TIM_TimeBaseInit(TIM1, &TIM_TimeBaseInitStructure);
+
+    TIM_ICInitStructure.TIM_Channel = TIM_Channel_1;
+    TIM_ICInitStructure.TIM_ICPrescaler = TIM_ICPSC_DIV1;
+    TIM_ICInitStructure.TIM_ICFilter = 0x00;
+    TIM_ICInitStructure.TIM_ICPolarity = TIM_ICPolarity_Rising;
+    TIM_ICInitStructure.TIM_ICSelection = TIM_ICSelection_DirectTI;
+    TIM_PWMIConfig(TIM1, &TIM_ICInitStructure);
+
+    NVIC_InitStructure.NVIC_IRQChannel = TIM1_CC_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+
+    TIM_ITConfig(TIM1, TIM_IT_CC1 | TIM_IT_CC2, ENABLE);
+    TIM_SelectInputTrigger(TIM1, TIM_TS_TI1FP1);
+    TIM_SelectSlaveMode(TIM1, TIM_SlaveMode_Reset);
+    TIM_SelectMasterSlaveMode(TIM1, TIM_MasterSlaveMode_Enable);
+    TIM_Cmd(TIM1, ENABLE);
+}
+
+int main(void)
+{
+    SystemCoreClockUpdate();
+    Delay_Init();
+    USART_Printf_Init(115200);
+    Input_Capture_Init(0xFFFF, 48 - 1);
+    
+    uint32_t count = 0;
+    uint32_t value = 0;
+    uint16_t avg = 0;
+    
+    while (1)
+    {     
+        // Trigger the ultrasonic sensor: set trigger high for 10µs then low
+        GPIO_WriteBit(GPIOD, GPIO_Pin_3, SET);
+        Delay_Us(10); 
+        GPIO_WriteBit(GPIOD, GPIO_Pin_3, RESET);
+
+        if (count <= 4000)
+        {
+            count++;
+            GPIO_WriteBit(GPIOD, GPIO_Pin_4, SET);
+            value += distance;
+            Delay_Ms(1);
+        }
+        else if (count == 4001)
+        {
+            avg = value / count;
+            // Calibration complete: signal with two quick blinks on alarm (PC7)
+            GPIO_WriteBit(GPIOC, GPIO_Pin_7, SET);
+            Delay_Ms(100);
+            GPIO_WriteBit(GPIOC, GPIO_Pin_7, RESET);
+            Delay_Ms(100);
+            GPIO_WriteBit(GPIOC, GPIO_Pin_7, SET);
+            Delay_Ms(100);
+            GPIO_WriteBit(GPIOC, GPIO_Pin_7, RESET);
+            Delay_Ms(100);
+            count++;
+        }
+        else if (count > 4001 && count < 4050)
+        {
+            count++;
+            Delay_Ms(1);
+        }
+        else
+        {
+            GPIO_WriteBit(GPIOD, GPIO_Pin_4, RESET);
+            if (distance < avg - 10 || distance > avg + 10)
+            {
+                // Obstacle detected: reset count and trigger alarm for 5 seconds
+                count = 0;
+                for (int i = 0; i < 5; i++)
+                {
+                    GPIO_WriteBit(GPIOC, GPIO_Pin_7, SET);
+                    GPIO_WriteBit(GPIOD, GPIO_Pin_4, SET);
+                    Delay_Ms(500);
+                    GPIO_WriteBit(GPIOC, GPIO_Pin_7, RESET);
+                    GPIO_WriteBit(GPIOD, GPIO_Pin_4, RESET);
+                    Delay_Ms(500);
+                }
+            }
+        }  
+    }
+}
+
+void TIM1_CC_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
+
+void TIM1_CC_IRQHandler(void)
+{
+    if (TIM_GetITStatus(TIM1, TIM_IT_CC1) != RESET)
+    {
+        TIM_SetCounter(TIM1, 0);
+    }
+
+    if (TIM_GetITStatus(TIM1, TIM_IT_CC2) != RESET)
+    {
+        uint32_t duration = TIM_GetCapture1(TIM1);
+        distance = duration * 0.034 / 2;
+        printf("%d\n", distance);
+    }
+
+    TIM_ClearITPendingBit(TIM1, TIM_IT_CC1 | TIM_IT_CC2);
+}
+```
+**```working model:```**  
+![image](https://github.com/user-attachments/assets/9c40e0ae-80ff-4968-968d-e48656be35cc)
+
+**```Video```**  
+https://1drv.ms/f/c/a0768bfd2660f657/Elf2YCb9i3YggKBrAAAAAAABbmZ-QRagGBj071BX2GbV9Q?e=qNrUpN
 
 
 
