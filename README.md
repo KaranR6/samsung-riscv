@@ -146,10 +146,55 @@ Analysing the Output Waveform
 </details>
 
 ------------------------------------------
+## Task 5: Ultrasonic Blind Spot Detection:
+The Ultrasonic Blind Spot Detection project is designed to enhance vehicle safety by detecting obstacles in the driver's blind spot. Using an ultrasonic sensor integrated with a RISC-V board, the system continuously monitors the area adjacent to the vehicle. When an obstacle is detected within a pre-defined range, the system promptly activates visual (LED) and/or audio (buzzer) alerts, thereby improving situational awareness and reducing the risk of collisions.
+
+<details>
+<summary> <b>Task 5:</b></summary>
+<br>
+ Ultrasonic Blind Spot Detection
+
+## Overview
+The Ultrasonic Blind Spot Detection project leverages ultrasonic sensor technology integrated with a RISC-V board to detect obstacles in a vehicle’s blind spot. By continuously monitoring the area with ultrasonic waves, the system alerts the driver through visual (LED) or audio (buzzer) signals when an obstacle is detected, thereby enhancing driving safety and reducing the risk of collisions.
+
+## Components Required
+- **RISC-V Board:** Acts as the central processing unit for sensor data and alert control.
+- **Ultrasonic Sensor:** (e.g., HC-SR04) for measuring distance.
+- **Buzzer/LED:** Provides audio or visual alerts upon obstacle detection.
+- **Power Supply:** Suitable voltage supply for the RISC-V board and peripherals.
+- **Breadboard:** For assembling the circuit.
+- **Jumper Wires:** For making the necessary connections.
+
+## Circuit Connection for Ultrasonic Blind Spot Detection
+Below is a table outlining the wiring connections between the RISC-V board and the components used in this project:
+
+| Component                 | RISC-V Board Pin | Description                                   |
+|---------------------------|------------------|-----------------------------------------------|
+| **Ultrasonic Sensor VCC** | VIN              | Connects to the power supply (e.g., 5V)       |
+| **Ultrasonic Sensor Trigger** | PD3          | Digital output pin to send the trigger signal |
+| **Ultrasonic Sensor Echo**    | PD2          | Digital input pin to receive the echo signal  |
+| **Buzzer/LED VCC**        | VIN              | Connects to the power supply (e.g., 5V)       |
+| **Buzzer/LED Control**    | PC2               | Digital output pin to activate the buzzer/LED |
+| **GND (All Components)**  | GND              | Common ground for all components              |
+
+How It Works
+1. **Ultrasonic Sensing:**  
+   The ultrasonic sensor emits high-frequency sound waves that reflect off objects. By measuring the time taken for the echo to return, the sensor calculates the distance to an obstacle.
+
+2. **Detection and Alert:**  
+   The RISC-V board continuously processes the distance measurements. When an object is detected within a predefined threshold in the blind spot, it activates the buzzer or LED to alert the driver.
+
+3. **Enhanced Safety:**  
+   This system provides drivers with immediate feedback about obstacles in their blind spot, thereby improving overall vehicle safety and reducing potential collision risks.
+   
+
+**```Pinout Diagram :```**  
+![image](https://github.com/user-attachments/assets/3a0c62a1-d77a-448e-981d-d8fca11d7ea0)
 
 
+</details>
 
-
+------------------------------------------
 
 
 
