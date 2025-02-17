@@ -353,8 +353,7 @@ void TIM1_CC_IRQHandler(void)
 ![image](https://github.com/user-attachments/assets/9c40e0ae-80ff-4968-968d-e48656be35cc)
 
 **```Video```**  
-https://1drv.ms/f/c/a0768bfd2660f657/Elf2YCb9i3YggKBrAAAAAAABbmZ-QRagGBj071BX2GbV9Q?e=qNrUpN
-
+https://1drv.ms/v/c/a0768bfd2660f657/Ec1e30Vhg-VImhBx9rPrpAsB4DDCRS3PKVbm8Yn9BRu9cg?e=Obt4gL
 
 
 
