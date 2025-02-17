@@ -174,7 +174,7 @@ Below is a table outlining the wiring connections between the RISC-V board and t
 | **Ultrasonic Sensor Trigger** | PD3          | Digital output pin to send the trigger signal |
 | **Ultrasonic Sensor Echo**    | PD2          | Digital input pin to receive the echo signal  |
 | **Buzzer/LED VCC**        | VIN              | Connects to the power supply (e.g., 5V)       |
-| **Buzzer/LED Control**    | PC2               | Digital output pin to activate the buzzer/LED |
+| **Buzzer/LED Control**    | PC7             | Digital output pin to activate the buzzer/LED |
 | **GND (All Components)**  | GND              | Common ground for all components              |
 
 How It Works
