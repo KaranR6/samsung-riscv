@@ -189,7 +189,7 @@ How It Works
    
 
 **```Pinout Diagram :```**  
-![image](https://github.com/user-attachments/assets/3a0c62a1-d77a-448e-981d-d8fca11d7ea0)
+![image](https://github.com/user-attachments/assets/0d5da3d6-fffd-4a65-82bc-1a6764b08a2f)
 
 
 </details>
